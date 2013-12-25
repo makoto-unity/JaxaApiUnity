@@ -9,7 +9,7 @@ using MiniJSON;
 public class JaxaApi : MonoBehaviour {
 	private string txt = "";
 	private string url = "https://joa.epi.bz/api/";
-	public string token = "TOKEN_Lu2C_";
+	public string token = "Insert_your_token";
 	private string format = "JSON";
 	
 	// 日降水量 prc
