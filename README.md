@@ -3,6 +3,10 @@ JaxaApiUnity
 
 Sample project using Jaxa API with Unity.
 
+---
+
+### 概要
+
 JAXA APIを使うためのUnityサンプルプロジェクトです。
 
 まずは、JAXA APIの仕様を理解しましょう。
@@ -28,22 +32,22 @@ https://www.satnavi-sub-jaxa.jp/jaxa_api_competition/form/form03.cgi
 
 ---
 
-プログラムの説明
+### プログラムの説明
 
-JaxaApi.cs
+#### JaxaApi.cs
 
 APIは５種類（降水量、海面水温、海上風速、土壌水分量、積雪深）×２パターン（全地点、平均）あります。
 
 	// 日降水量 prc
-	public void AskPrcAverage( string dateStr /*2012-08-01 */, float latitude, float longitude, float range) {
+	public void AskPrcAverage( string dateStr, float latitude, float longitude, float range) {
 
-引数は順番に日付の文字列、緯度、経度、範囲（0.1〜）ということになります。
+引数は順番に日付の文字列（「2012-08-01」という感じに） 、緯度、経度、範囲（0.1〜）ということになります。
 
 一旦、Ask〜系の関数でデータをネットから取得した後、public変数のresponseDataでデータを取得してください。
 
 --
 
-MiniJSON.cs
+#### MiniJSON.cs
 
 https://gist.github.com/darktable/1411710
 
@@ -51,7 +55,7 @@ JSONパーサーとしては手軽だが、メモリを多く消費してしま�
 
 --
 
-MouseOrbitImproved.cs
+#### MouseOrbitImproved.cs
 
 マウスドラッグで対象物中心にカメラを回すプログラム。
 元ネタは
@@ -60,12 +64,12 @@ http://wiki.unity3d.com/index.php?title=MouseOrbitImproved
 
 --
 
-PointToGps.cs
+#### PointToGps.cs
 
 地球のXYZ座標を緯度経度に変換するユーティリティ関数
 
 --
 
-TouchPoint.cs
+#### TouchPoint.cs
 
 サンプルプログラム。タッチしたところの降水量を表示したり。
