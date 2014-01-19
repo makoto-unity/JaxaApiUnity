@@ -28,7 +28,7 @@ public class TouchPoint : MonoBehaviour {
 					PointToGps.GetLatitudeLongitude( hitInfo.point, out latDeg, out lonDeg );
 					print ( "lat:" + latDeg + "   lon:" + lonDeg );
 					jaxa.AskPrcAverage( dateStr, latDeg, lonDeg, 0.1f );
-					print( jaxa.responseData["value"] );
+					print( jaxa.responseData["prc"] );
 				}
 			}	
 		}
@@ -37,10 +37,10 @@ public class TouchPoint : MonoBehaviour {
 	public Rect rect;
 	void OnGUI() {
 		dateStr = GUI.TextField(rect, dateStr);
-		if ( jaxa.responseData != null && jaxa.responseData.ContainsKey("value") ) {
+		if ( jaxa.responseData != null && jaxa.responseData.ContainsKey("prc") ) {
 			string latStr = ((float)Mathf.FloorToInt(latDeg * 10.0f) / 10.0f).ToString();
 			string lonStr = ((float)Mathf.FloorToInt(lonDeg * 10.0f) / 10.0f).ToString();
-			GUI.Label(new Rect(10, 30, 600, 20), "緯度:" + latStr + " 経度:" + lonStr + " 降水量:" +  jaxa.responseData["value"]);
+			GUI.Label(new Rect(10, 30, 600, 20), "緯度:" + latStr + " 経度:" + lonStr + " 降水量:" +  jaxa.responseData["prc"]);
 		}
 	}
 }
